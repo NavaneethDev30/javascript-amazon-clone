@@ -113,9 +113,8 @@ document.querySelectorAll('.add-to-cart-js')
            cart.forEach((item)=>{
             cartQuantity=item.quantity
             console.log(cartQuantity);
-
            })
-
+            document.querySelector('.cart-quantity').innerHTML=cartQuantity;
             console.log(cart);
 
         })
