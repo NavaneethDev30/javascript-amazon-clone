@@ -17,7 +17,7 @@ matchingProduct = product;
 });
 
  cartSummaryHTML += `
-    <div class="cart-item-container">
+    <div class="cart-item-container js-cart-item-container-${matchingProduct.id}">
     <div class="delivery-date">
         Delivery date: Tuesday, June 21
     </div>
@@ -100,7 +100,13 @@ matchingProduct = product;
   link.addEventListener('click',()=>{
    const productId= link.getAttribute('data-product-id')
    removeFromCart(productId)
-    console.log(cart);
+    // console.log(cart);
+ const container=document.querySelector(
+    `.js-cart-item-container-${productId}`
+)
+// console.log(container);
+container.remove();
+
   })
  })
 
