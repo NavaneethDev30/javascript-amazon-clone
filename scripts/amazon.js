@@ -93,8 +93,8 @@ products.forEach((product) => {
 function updateCartQuantity(){
     let cartQuantity=0;
     cart.forEach((cartitem)=>{
-        cartQuantity=cartitem.quantity
-        // console.log(cartQuantity);
+        cartQuantity+=cartitem.quantity
+        console.log(cartQuantity);
        })
         document.querySelector('.cart-quantity').innerHTML=cartQuantity;
         console.log(cart);
