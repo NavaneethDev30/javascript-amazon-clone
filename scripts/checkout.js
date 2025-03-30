@@ -9,6 +9,9 @@ const today = dayjs();
 const deliveryDate = today.add(7, 'days')
 console.log(deliveryDate.format('dddd ,MMMM D'))
 
+
+function renderOrderSummary(){
+
 let cartSummaryHTML = '';
 
 cart.forEach((cartitem) => {
@@ -136,5 +139,9 @@ document.querySelectorAll('.delivery-option-js')
     const{productId,deliveryOptionId}=element.dataset;
     element.addEventListener('click',()=>{
      updateDeliveryOption(productId,deliveryOptionId)
+     renderOrderSummary();
     })
 })
+}
+
+renderOrderSummary();
