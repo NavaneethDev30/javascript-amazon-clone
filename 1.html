@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute Methods in JavaScript</title>
+</head>
+<body>
+    <button id="myButton" class="btn">Click Me</button>
+    <p id="result"></p>
+
+    <script>
+        let button = document.getElementById("myButton");
+
+        // 1. Using getAttribute()
+        let className = button.getAttribute("class");
+        document.getElementById("result").innerText = "Class attribute: " + className;
+
+        // 2. Using setAttribute()
+        button.setAttribute("style", "background-color: blue; color: white; padding: 10px;");
+        
+        // 3. Using removeAttribute()
+        setTimeout(() => {
+            button.removeAttribute("class"); // Removes the class attribute after 3 seconds
+            alert("Class attribute removed!");
+        }, 3000);
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modify List with JavaScript</title>
+    <style>
+        .list-item {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="heading">Shopping List</h1>
+    <ul id="itemList">
+        <li>Milk</li>
+        <li>Bread</li>
+        <li>Eggs</li>
+    </ul>
+
+    <script>
+        let list = document.getElementById("itemList");
+        let heading = document.getElementById("heading");
+
+        // Function to add a new list item
+        function addListItem(position, text) {
+            let newItem = document.createElement("li"); // Create new <li> element
+            newItem.textContent = text; // Set text content
+            newItem.classList.add("list-item"); // Add class attribute
+
+            if (position === "start") {
+                list.prepend(newItem); // Add at the beginning
+            } else {
+                list.appendChild(newItem); // Add at the end
+            }
+        }
+        
+
+        // Add a new item at the start
+        addListItem("start", "Butter");
+
+        // Add a new item at the end
+        addListItem("end", "Cheese");
+
+        // Apply class to all existing items
+        let items = document.querySelectorAll("#itemList li");
+        items.forEach(item => {
+            item.classList.add("list-item");
+        });
+
+        // Update heading with the number of items
+        heading.textContent = `Shopping List (${items.length})`;
+    </script>
+
+</body>
+</html>
+
