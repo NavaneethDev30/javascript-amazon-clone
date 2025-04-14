@@ -4,6 +4,7 @@ import { products,getProduct} from '../../data/products.js';
 import { formatcurrency } from '../utils/money.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions, getDeliveryOptions } from '../../data/deliveryOptions.js';
+import { renderPaymentSummary } from './payementsummary.js';
 
 const today = dayjs();
 const deliveryDate = today.add(7, 'days')
@@ -122,6 +123,7 @@ document.querySelectorAll('.js-delete-link').forEach((link) => {
         )
         // console.log(container);
         container.remove();
+        renderPaymentSummary();
 
     })
 })
@@ -133,6 +135,7 @@ document.querySelectorAll('.delivery-option-js')
     element.addEventListener('click',()=>{
      updateDeliveryOption(productId,deliveryOptionId)
      renderOrderSummary();
+     renderPaymentSummary();
     })
 })
 }
